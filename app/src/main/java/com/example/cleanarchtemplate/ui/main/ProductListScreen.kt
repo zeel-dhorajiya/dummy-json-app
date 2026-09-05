@@ -31,7 +31,10 @@ fun ProductListScreen(
         // Search Bar
         OutlinedTextField(
             value = searchQuery,
-            onValueChange = { searchQuery = it },
+            onValueChange = { 
+                searchQuery = it
+                viewModel.searchProducts(it)
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
@@ -70,9 +73,7 @@ fun ProductListScreen(
                 )
             }
             is ProductListState.Success -> {
-                val products = uiState.products.filter { 
-                    (it.title ?: "").contains(searchQuery, ignoreCase = true) 
-                }
+                val products = uiState.products
                 
                 LazyColumn(
                     contentPadding = PaddingValues(16.dp),

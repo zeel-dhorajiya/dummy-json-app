@@ -36,4 +36,20 @@ class ProductListViewModel(
             }
         }
     }
+
+    fun searchProducts(query: String) {
+        if (query.isBlank()) {
+            loadProducts()
+            return
+        }
+        _state.value = ProductListState.Loading
+        viewModelScope.launch {
+            try {
+                val response = productRepository.searchProducts(query = query)
+                _state.value = ProductListState.Success(response.products)
+            } catch (e: Exception) {
+                _state.value = ProductListState.Error(e.message ?: "Search failed")
+            }
+        }
+    }
 }

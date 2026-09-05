@@ -3,10 +3,15 @@ package com.example.cleanarchtemplate.data.local
 import android.content.Context
 import android.content.SharedPreferences
 
-class TokenManager(context: Context) {
-    private val prefs: SharedPreferences = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+open class TokenManager(
+    private val prefs: SharedPreferences,
+) {
 
-    fun saveToken(token: String) {
+    constructor(context: Context) : this(
+        context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+    )
+
+    open fun saveToken(token: String) {
         prefs.edit().putString("ACCESS_TOKEN", token).apply()
     }
 

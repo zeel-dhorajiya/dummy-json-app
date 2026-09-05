@@ -8,6 +8,7 @@ import com.example.cleanarchtemplate.di.viewModelModule
 import com.example.cleanarchtemplate.di.mainViewModelModule
 import com.example.cleanarchtemplate.di.cartViewModelModule
 import com.example.cleanarchtemplate.di.profileViewModelModule
+import com.example.cleanarchtemplate.di.detailViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,7 +18,7 @@ class MainApplication : Application() {
 
         startKoin {
             androidContext(this@MainApplication)
-            modules(networkModule, localModule, repositoryModule, viewModelModule, mainViewModelModule, cartViewModelModule, profileViewModelModule)
+            modules(networkModule, localModule, repositoryModule, viewModelModule, mainViewModelModule, cartViewModelModule, profileViewModelModule, detailViewModelModule)
         }
     }
 }

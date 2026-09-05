@@ -11,6 +11,7 @@ import com.example.cleanarchtemplate.ui.profile.ProfileScreen
 
 @Composable
 fun HomeScreen(
+    onProductClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var selectedTab by remember { mutableStateOf(0) }
@@ -34,7 +35,7 @@ fun HomeScreen(
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
-                0 -> ProductListScreen(onProductClick = { /* Handle click later */ })
+                0 -> ProductListScreen(onProductClick = onProductClick)
                 1 -> CartScreen()
                 2 -> ProfileScreen()
             }

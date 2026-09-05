@@ -1,5 +1,6 @@
 package com.example.cleanarchtemplate.di
 
+import android.content.Context
 import com.example.cleanarchtemplate.data.api.ApiService
 import com.example.cleanarchtemplate.data.api.NetworkModule
 import com.example.cleanarchtemplate.data.local.TokenManager
@@ -27,7 +28,7 @@ val networkModule = module {
 }
 
 val localModule = module {
-  single { TokenManager(get()) }
+  single<TokenManager> { TokenManager(get<Context>()) }
 }
 
 val repositoryModule = module {
@@ -50,4 +51,8 @@ val cartViewModelModule = module {
 
 val profileViewModelModule = module {
     viewModel { com.example.cleanarchtemplate.ui.profile.ProfileViewModel(get()) }
+}
+
+val detailViewModelModule = module {
+    viewModel { com.example.cleanarchtemplate.ui.detail.ProductDetailViewModel(get()) }
 }

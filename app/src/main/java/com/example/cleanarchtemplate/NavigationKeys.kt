@@ -7,5 +7,6 @@ object NavigationKeys {
     @Serializable data object Route {
         @Serializable data object LOGIN : NavKey
         @Serializable data object HOME : NavKey
+        @Serializable data class PRODUCT_DETAIL(val id: Int) : NavKey
     }
 }

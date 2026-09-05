@@ -31,7 +31,18 @@ fun Navigation() {
           )
         }
         entry<NavigationKeys.Route.HOME> {
-          HomeScreen()
+          HomeScreen(
+            onProductClick = { productId ->
+                backStack.add(NavigationKeys.Route.PRODUCT_DETAIL(productId))
+            }
+          )
+        }
+        entry<NavigationKeys.Route.PRODUCT_DETAIL> {
+          val productId = it.id
+          com.example.cleanarchtemplate.ui.detail.ProductDetailScreen(
+            productId = productId,
+            onBack = { backStack.removeLastOrNull() }
+          )
         }
       },
   )
