@@ -1,14 +1,23 @@
 # DummyJSON Android App
 
-A modern Android application built with Jetpack Compose and Clean Architecture, integrating the [DummyJSON](https://dummyjson.com) REST API for product browsing, cart management, and user authentication.
-
-## API Documentation
-
-The app consumes the DummyJSON API (`https://dummyjson.com`). All resources support `limit`, `skip`, and `select` query params for pagination and field selection. A `delay` param (0–5000ms) can simulate network latency. Authenticated requests use a Bearer token in the `Authorization` header.
+A modern Android application built to showcase industry-standard Android development practices. This project demonstrates expertise in building scalable, maintainable, and testable applications using **Clean Architecture**, **Jetpack Compose**, and modern dependency injection.
 
 ---
 
-## APIs We Will Use
+## 🎯 Tech Stack & Core Skills Showcased
+
+If you are a recruiter or technical lead evaluating this repository, here are the primary skills and technologies demonstrated in this codebase:
+
+*   **UI / Presentation:** 100% **Jetpack Compose** (Material 3, Navigation Compose, Lazy Layouts, State Management).
+*   **Architecture Pattern:** **MVVM** (Model-View-ViewModel) paired with **Clean Architecture** (Data, Domain, UI layers).
+*   **Dependency Injection:** **Koin 4.0** (Modules, ViewModel Injection, Scopes).
+*   **REST API Integration:** **Retrofit 2** & **OkHttp** with Interceptors.
+*   **JSON Serialization:** **Kotlinx Serialization** for robust, type-safe JSON parsing.
+*   **Asynchronous Programming:** **Kotlin Coroutines** & **Flows** (`StateFlow`, `collectAsState`).
+*   **Local Storage:** `SharedPreferences` for secure JWT Token management.
+
+---
+## API Overview
 
 ### 1. Authentication (`/auth`)
 
